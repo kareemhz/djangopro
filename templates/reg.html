@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sowedane registration form</title>
+<meta name="keywords" content="example, JavaScript Form Validation, Sample registration form" />
+<meta name="description" content="This document is an example of sample registration form." />
+<link rel='stylesheet' href='staic/mycss/registrationform.css' type='text/css' />
+
+</head>
+<body bgcolor="#deb887">
+<center><h1>Signup Form</h1></center>
+<p>Use tab keys to move from one input field to the next.</p>
+<form action="./reg" method="post">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td>
+<label for="userid">User id:</label>
+            </td>
+            <td>
+<input type="text" name="userid" size="12" /><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+<label for="passid">Password (8 characters minimum):</label>
+            </td>
+            <td>
+<input type="password" name="passid" size="12" /><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+<label for="username">Name:</label>
+            </td>
+            <td>
+<input type="text" name="username" size="50" /><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+<label for="address">Address:</label>
+            </td>
+            <td>
+        <input type="text" name="address" size="50" /><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+<label for="country">Country:</label>
+            </td>
+        <td>
+            <select name="country">
+                <option selected="" value="Default">(Please select a country)</option>
+                <option value="AF">Australia</option>
+                <option value="AL">Canada</option>
+                <option value="DZ">India</option>
+                <option value="AS">Russia</option>
+                <option value="AD">USA</option>
+            </select><br>
+        </td>
+    </tr>
+                <tr>
+            <td>
+<label for="State">State:</label>
+            </td>
+            <td>
+<select name="State">
+    {% if country == India %}
+<option selected="India" value="India">(Please select a state)</option>
+<option value="India">AP</option>
+<option value="India">TS</option>
+<option value="India">KA</option>
+    {% endif %}
+<option value="AD">UP</option>
+<option value="AD">MP</option>
+</select><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+<label for="pin">PIN Code:</label>
+            </td>
+            <td>
+<input type="text" name="zip" /><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+<label for="email">Email:</label>
+            </td>
+            <td>
+<input type="text" name="email" size="50" /><br>
+            </td>
+        </tr>
+    <tr>
+        <td>
+<label for="course">course:</label>
+        </td>
+        <td>
+            <select name="course">
+                <option selected="" value="Default">(Please select a course)</option>
+                <option value="AF">B.Tech</option>
+                <option value="AL">BBA</option>
+                <option value="DZ">MCA</option>
+                <option value="AS">MBA</option>
+                <option value="AD">B.COM</option>
+            </select><br>
+        </td>
+    </tr>
+        <tr>
+            <td>
+<label id="gender">Gender:</label>
+            </td>
+            <td>
+<input type="radio" name="sex" value="Male" /><span>Male</span><input type="radio" name="sex" value="Female" /><span>Female</span>
+<br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+<label>Language:</label>
+            </td>
+            <td>
+<li><input type="checkbox" name="en" value="en" checked /><span>English</span>
+<input type="checkbox" name="nonen" value="noen" /><span>Non English</span><br>
+</li>
+            </td>
+        </tr>
+        <tr>
+            <td>
+<label for="desc">About:</label>
+            </td>
+            <td>
+<textarea name="desc" id="desc"></textarea><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+<input type="submit" name="submit" value="Submit" />
+            </td>
+        </tr>
+    </table>
+</form>
+<h1>If Already Signup</h1>
+<p><a href="{% url 'mywebsite:logininput' %}">Login here</a></p>
+</body>
+</html>

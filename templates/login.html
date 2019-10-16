@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body bgcolor="#87cefa">
+<form action="./login" method="post">
+    {% csrf_token %}
+Enter username:<input type="text" name="un"><br>
+Enter password:<input type="password" name="pw">Password (8 characters minimum)<br>
+<input type="submit" value="login"><br>
+<a href="./reginput">click here to register</a>
+</form>
+
+</body>
+</html>
